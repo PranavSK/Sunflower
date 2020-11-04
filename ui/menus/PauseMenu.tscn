@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/menus/button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/menus/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://ui/menus/SettingsContainer.tscn" type="PackedScene" id=3]
+
+[node name="PauseMenu" type="PopupPanel"]
+pause_mode = 2
+anchor_right = 0.417
+anchor_bottom = 0.641
+rect_min_size = Vector2( 900, 692 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 852.0
+margin_bottom = 732.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Button" parent="MarginContainer/Buttons"]
+margin_right = 820.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.776471, 0.776471, 0.776471, 1 )
+text = "MAIN MENU"
+flat = true
+
+[node name="SettingsContainer" parent="MarginContainer/Buttons" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 50.0
+margin_right = 820.0
+margin_bottom = 642.0
+
+[node name="Quit" type="Button" parent="MarginContainer/Buttons"]
+margin_top = 652.0
+margin_right = 820.0
+margin_bottom = 692.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.776471, 0.776471, 0.776471, 1 )
+text = "QUIT"
+flat = true

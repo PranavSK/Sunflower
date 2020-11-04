@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/menus/button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/menus/text_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/menus/SettingsContainer.gd" type="Script" id=3]
+
+[node name="SettingsContainer" type="MarginContainer"]
+margin_left = 804.0
+margin_right = 1604.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 3
+custom_constants/margin_right = 50
+custom_constants/margin_top = 150
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 50.0
+margin_top = 150.0
+margin_right = 750.0
+margin_bottom = 850.0
+custom_constants/separation = 50
+
+[node name="Music" type="HBoxContainer" parent="Buttons"]
+margin_right = 700.0
+margin_bottom = 36.0
+
+[node name="Label" type="Label" parent="Buttons/Music"]
+margin_right = 229.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 2 )
+text = "Music Volume: "
+
+[node name="Volume" type="HSlider" parent="Buttons/Music"]
+margin_left = 233.0
+margin_right = 700.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="SFX" type="HBoxContainer" parent="Buttons"]
+margin_top = 86.0
+margin_right = 700.0
+margin_bottom = 122.0
+
+[node name="Label" type="Label" parent="Buttons/SFX"]
+margin_right = 239.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 2 )
+text = "Effects Volume: "
+
+[node name="Volume" type="HSlider" parent="Buttons/SFX"]
+margin_left = 243.0
+margin_right = 700.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Master" type="HBoxContainer" parent="Buttons"]
+margin_top = 172.0
+margin_right = 700.0
+margin_bottom = 208.0
+
+[node name="Label" type="Label" parent="Buttons/Master"]
+margin_right = 239.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 2 )
+text = "Master Volume: "
+
+[node name="Volume" type="HSlider" parent="Buttons/Master"]
+margin_left = 243.0
+margin_right = 700.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="CheckButton" parent="Buttons"]
+margin_top = 258.0
+margin_right = 700.0
+margin_bottom = 302.0
+custom_fonts/font = ExtResource( 2 )
+text = "Fullscreen"
+flat = true
+
+[node name="BackButton" type="Button" parent="Buttons"]
+margin_top = 352.0
+margin_right = 700.0
+margin_bottom = 392.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.777344, 0.777344, 0.777344, 1 )
+text = "BACK"
+flat = true

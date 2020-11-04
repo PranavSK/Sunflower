@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spaceship_hover.wav-6b9310f6ce65a3e2e206aa2cc406f835.sample"
+
+[deps]
+
+source_file="res://sounds/spaceship_hover.wav"
+dest_files=[ "res://.import/spaceship_hover.wav-6b9310f6ce65a3e2e206aa2cc406f835.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

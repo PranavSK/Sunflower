@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://stage/garden/ground/sprites/color/Image0001.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 960, 10 )
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -48, 935 )
+scale = Vector2( 1.05, 1.05 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="BoxCollider2D" type="CollisionShape2D" parent="."]
+position = Vector2( 960, 1070 )
+shape = SubResource( 1 )

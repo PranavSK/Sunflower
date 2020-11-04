@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionFade/CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="TransitionFade" type="AnimationPlayer"]
+pause_mode = 2
+anims/fade = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

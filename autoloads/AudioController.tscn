@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sounds/ui_select.wav" type="AudioStream" id=1]
+[ext_resource path="res://sounds/ui_cancel.wav" type="AudioStream" id=2]
+[ext_resource path="res://sounds/ui_highlight.wav" type="AudioStream" id=3]
+[ext_resource path="res://autoloads/AudioController.gd" type="Script" id=4]
+[ext_resource path="res://music/gameplay_music.wav" type="AudioStream" id=5]
+[ext_resource path="res://music/menu_music.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_to_gameplay"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameplayMusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 5.66, 5.66 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MenuMusicPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 5.66, 5.66 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_to_menu"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MenuMusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 5.66, 5.66 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameplayMusicPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 5.66, 5.66 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[node name="AudioController" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="UISelectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "UI"
+
+[node name="UIHighlightPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "UI"
+
+[node name="UICancelPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "UI"
+
+[node name="GameplayMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -80.0
+bus = "Background"
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Background"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_to_gameplay = SubResource( 1 )
+anims/fade_to_menu = SubResource( 2 )

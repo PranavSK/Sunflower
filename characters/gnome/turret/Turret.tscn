@@ -1,0 +1,48 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://characters/gnome/turret/Turret.gd" type="Script" id=1]
+[ext_resource path="res://sounds/weapon_firing.wav" type="AudioStream" id=2]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_2.tres" type="Texture" id=3]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_0.tres" type="Texture" id=4]
+[ext_resource path="res://characters/gnome/shell/Shell.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/gnome/turret/sprites/turret.tres" type="Texture" id=6]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_9.tres" type="Texture" id=7]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_8.tres" type="Texture" id=8]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_1.tres" type="Texture" id=9]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_4.tres" type="Texture" id=10]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_6.tres" type="Texture" id=11]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_3.tres" type="Texture" id=12]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_5.tres" type="Texture" id=13]
+[ext_resource path="res://characters/gnome/turret/sprites/turret_fire_7.tres" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "fire",
+"speed": 16.0
+} ]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource( 1 )
+projectile = ExtResource( 5 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 100, 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -10 )
+frames = SubResource( 1 )
+animation = "idle"
+centered = false
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FireSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )

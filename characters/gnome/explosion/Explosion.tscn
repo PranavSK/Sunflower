@@ -1,0 +1,59 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_1.tres" type="Texture" id=1]
+[ext_resource path="res://characters/gnome/explosion/Explosion.gd" type="Script" id=2]
+[ext_resource path="res://sounds/explosion.wav" type="AudioStream" id=3]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_3.tres" type="Texture" id=4]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_10.tres" type="Texture" id=5]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_11.tres" type="Texture" id=6]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_12.tres" type="Texture" id=7]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_0.tres" type="Texture" id=8]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_8.tres" type="Texture" id=9]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_13.tres" type="Texture" id=10]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_5.tres" type="Texture" id=11]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_14.tres" type="Texture" id=12]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_15.tres" type="Texture" id=13]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_16.tres" type="Texture" id=14]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_17.tres" type="Texture" id=15]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_2.tres" type="Texture" id=16]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_6.tres" type="Texture" id=17]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_4.tres" type="Texture" id=18]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_7.tres" type="Texture" id=19]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_9.tres" type="Texture" id=20]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_18.tres" type="Texture" id=21]
+[ext_resource path="res://characters/gnome/explosion/sprites/explosion_19.tres" type="Texture" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 20 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "explode",
+"speed": 24.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 35, 35 )
+
+[node name="Explosion" type="Area2D" groups=[
+"camera_shaker",
+]]
+input_pickable = false
+monitorable = false
+collision_layer = 16
+collision_mask = 64
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ExplosionSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+attenuation = 1.10957
+bus = "SFX"

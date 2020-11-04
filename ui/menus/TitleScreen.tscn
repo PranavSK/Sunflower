@@ -1,0 +1,287 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://stage/gnome_showcase/GnomeShowcase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/menus/TitleScreen.gd" type="Script" id=2]
+[ext_resource path="res://ui/fonts/edo/edosz.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ui/fonts/top_secret/top_secret.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ui/menus/text_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://ui/menus/SettingsContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/menus/button_font.tres" type="DynamicFont" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="ButtonGroup" id=3]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 200
+custom_constants/margin_top = 40
+custom_constants/margin_left = 200
+custom_constants/margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="Margin"]
+margin_left = 200.0
+margin_top = 40.0
+margin_right = 1720.0
+margin_bottom = 1104.0
+
+[node name="Header" type="VBoxContainer" parent="Margin/Content"]
+margin_right = 1520.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="Margin/Content/Header"]
+margin_right = 1520.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Sunflower"
+align = 1
+valign = 1
+
+[node name="SubTitle" type="Label" parent="Margin/Content/Header"]
+margin_top = 117.0
+margin_right = 1520.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "OIL: Overhead Immobilisation Launcher"
+align = 1
+valign = 1
+
+[node name="Body" type="HBoxContainer" parent="Margin/Content"]
+margin_top = 164.0
+margin_right = 1520.0
+margin_bottom = 1064.0
+size_flags_vertical = 3
+
+[node name="HomeContainer" type="MarginContainer" parent="Margin/Content/Body"]
+margin_right = 916.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 3
+custom_constants/margin_right = 80
+custom_constants/margin_top = 160
+custom_constants/margin_left = 80
+custom_constants/margin_bottom = 160
+
+[node name="Buttons" type="VBoxContainer" parent="Margin/Content/Body/HomeContainer"]
+margin_left = 80.0
+margin_top = 160.0
+margin_right = 836.0
+margin_bottom = 740.0
+
+[node name="Play" type="Button" parent="Margin/Content/Body/HomeContainer/Buttons"]
+margin_right = 756.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.776471, 0.776471, 0.776471, 1 )
+text = "PLAY"
+flat = true
+
+[node name="DifficultyOptions" type="HBoxContainer" parent="Margin/Content/Body/HomeContainer/Buttons"]
+margin_top = 134.0
+margin_right = 756.0
+margin_bottom = 178.0
+alignment = 1
+
+[node name="Normal" type="CheckBox" parent="Margin/Content/Body/HomeContainer/Buttons/DifficultyOptions"]
+margin_left = 177.0
+margin_right = 318.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.776471, 0.776471, 0.776471, 1 )
+pressed = true
+group = SubResource( 3 )
+text = "Normal"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hard" type="CheckBox" parent="Margin/Content/Body/HomeContainer/Buttons/DifficultyOptions"]
+margin_left = 322.0
+margin_right = 424.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.776471, 0.776471, 0.776471, 1 )
+group = SubResource( 3 )
+text = "Hard"
+flat = true
+
+[node name="Extreme" type="CheckBox" parent="Margin/Content/Body/HomeContainer/Buttons/DifficultyOptions"]
+margin_left = 428.0
+margin_right = 579.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.776471, 0.776471, 0.776471, 1 )
+group = SubResource( 3 )
+text = "Extreme"
+flat = true
+
+[node name="Settings" type="Button" parent="Margin/Content/Body/HomeContainer/Buttons"]
+margin_top = 182.0
+margin_right = 756.0
+margin_bottom = 312.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.777344, 0.777344, 0.777344, 1 )
+text = "SETTINGS"
+flat = true
+
+[node name="Credits" type="Button" parent="Margin/Content/Body/HomeContainer/Buttons"]
+margin_top = 316.0
+margin_right = 756.0
+margin_bottom = 446.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.777344, 0.777344, 0.777344, 1 )
+text = "CREDITS"
+flat = true
+
+[node name="Quit" type="Button" parent="Margin/Content/Body/HomeContainer/Buttons"]
+margin_top = 450.0
+margin_right = 756.0
+margin_bottom = 580.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.777344, 0.777344, 0.777344, 1 )
+text = "QUIT"
+flat = true
+
+[node name="SettingsContainer" parent="Margin/Content/Body" instance=ExtResource( 6 )]
+visible = false
+
+[node name="CreditsContainer" type="MarginContainer" parent="Margin/Content/Body"]
+visible = false
+margin_right = 916.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 3
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Content/Body/CreditsContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 866.0
+margin_bottom = 850.0
+custom_constants/separation = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin/Content/Body/CreditsContainer/VBoxContainer"]
+margin_right = 816.0
+margin_bottom = 710.0
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Would like to take this oppurtunity to aknowledge the contributions of team members and credit the sources for external assets.
+
+The gameplay and code was developed by Pranav S K ([url=https://github.com/PranavSK]GitHub[/url],  [url=pranavsk.itch.io]Itchio[/url]).
+The 3d art and assets and  UI sound design was provided by Daniel Hudson.([url=fireglowstudios.itch.io]Itchio[/url], [url=https://www.artstation.com/danielshudson]ArtStation[/url]).
+The music was created by Samuel Hollywood-Summers ([url=https://www.samuelhollywoodsummers.com]Web[/url]).
+
+The fonts used are from the following links:
+[url=https://www.dafont.com/top-secret-kb.font]https://www.dafont.com/top-secret-kb.font[/url]
+[url=https://www.dafont.com/edo-sz.font]https://www.dafont.com/edo-sz.font[/url]
+[url=https://www.dafont.com/imperator-plaque.font]https://www.dafont.com/imperator-plaque.font[/url]
+[url=https://www.dafont.com/gunplay.font]https://www.dafont.com/gunplay.font[/url]
+[url=https://www.dafont.com/fragment-core.font]https://www.dafont.com/fragment-core.font[/url]
+
+Some sound clips were taken from [url=freesound.org]freesound.org[/url].
+
+Additionally would like to thank [url=https://kenney.nl]Kenney[/url] whose placeholder assets helped iterate quicker."
+text = "Would like to take this oppurtunity to aknowledge the contributions of team members and credit the sources for external assets.
+
+The gameplay and code was developed by Pranav S K (GitHub,  Itchio).
+The 3d art and assets and  UI sound design was provided by Daniel Hudson.(Itchio, ArtStation).
+The music was created by Samuel Hollywood-Summers (Web).
+
+The fonts used are from the following links:
+https://www.dafont.com/top-secret-kb.font
+https://www.dafont.com/edo-sz.font
+https://www.dafont.com/imperator-plaque.font
+https://www.dafont.com/gunplay.font
+https://www.dafont.com/fragment-core.font
+
+Some sound clips were taken from freesound.org.
+
+Additionally would like to thank Kenney whose placeholder assets helped iterate quicker."
+
+[node name="BackButton" type="Button" parent="Margin/Content/Body/CreditsContainer/VBoxContainer"]
+margin_top = 760.0
+margin_right = 816.0
+margin_bottom = 800.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.45098, 0.580392, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.777344, 0.777344, 0.777344, 1 )
+text = "BACK"
+flat = true
+
+[node name="GnomeShowcase" parent="Margin/Content/Body" instance=ExtResource( 1 )]
+margin_left = 920.0
+margin_right = 1520.0
+margin_bottom = 900.0
+size_flags_horizontal = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

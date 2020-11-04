@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://source_3d/gnome/gnome.glb" type="PackedScene" id=1]
+[ext_resource path="res://stage/gnome_showcase/GnomeShowcase.gd" type="Script" id=2]
+
+[sub_resource type="Environment" id=1]
+
+[node name="GnomeShowcase" type="ViewportContainer"]
+margin_right = 600.0
+margin_bottom = 717.0
+rect_min_size = Vector2( 600, 900 )
+size_flags_horizontal = 3
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 600, 900 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="Viewport"]
+transform = Transform( 0.999862, -0.00423193, -0.0160689, 0.0062772, 0.991566, 0.129448, 0.0153856, -0.129531, 0.991456, 0.0870009, 2.52445, 4.66077 )
+size = 5.05
+
+[node name="World" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="gnome" parent="World" instance=ExtResource( 1 )]
+
+[node name="AnimationPlayer" parent="World/gnome" index="1"]
+autoplay = "Walking-loop"
+
+[editable path="World/gnome"]

@@ -1,0 +1,273 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/menus/DebugMenu.gd" type="Script" id=1]
+
+[node name="DebugMenu" type="PopupPanel"]
+margin_right = 400.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 265, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 392.0
+margin_bottom = 823.0
+size_flags_horizontal = 3
+
+[node name="SunConfigsLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_right = 392.0
+margin_bottom = 45.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Sun Configs[/b][/center]
+
+[b]Day Scale[/b]: Day length is [code]1/value[/code] secs"
+text = "Sun Configs
+
+Day Scale: Day length is 1/value secs"
+fit_content_height = true
+
+[node name="SunDayScale" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 392.0
+margin_bottom = 73.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/SunDayScale"]
+margin_left = 126.0
+margin_top = 5.0
+margin_right = 187.0
+margin_bottom = 19.0
+text = "Day Scale"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/SunDayScale"]
+margin_left = 191.0
+margin_right = 265.0
+margin_bottom = 24.0
+step = 0.1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+margin_top = 77.0
+margin_right = 392.0
+margin_bottom = 81.0
+
+[node name="FlowerConfigsLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 85.0
+margin_right = 392.0
+margin_bottom = 160.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Flower Configs[/b][/center]
+[b]Growth Rate[/b]: The flower grows to next stage in [code]1/value[/code] secs.
+[b]Sad Timeout[/b]: The time in secs after which the flower goes to cry state if it remains blocked.
+[b]Show Debug[/b]: Draw the shadow check raycasts."
+text = "Flower Configs
+Growth Rate: The flower grows to next stage in 1/value secs.
+Sad Timeout: The time in secs after which the flower goes to cry state if it remains blocked.
+Show Debug: Draw the shadow check raycasts."
+fit_content_height = true
+
+[node name="FlowerGrowthRate" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 164.0
+margin_right = 392.0
+margin_bottom = 188.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/FlowerGrowthRate"]
+margin_left = 118.0
+margin_top = 5.0
+margin_right = 196.0
+margin_bottom = 19.0
+text = "Growth Rate"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/FlowerGrowthRate"]
+margin_left = 200.0
+margin_right = 274.0
+margin_bottom = 24.0
+max_value = 1.0
+step = 0.05
+
+[node name="FlowerSadTimeout" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 192.0
+margin_right = 392.0
+margin_bottom = 216.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/FlowerSadTimeout"]
+margin_left = 117.0
+margin_top = 5.0
+margin_right = 196.0
+margin_bottom = 19.0
+text = "Sad Timeout"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/FlowerSadTimeout"]
+margin_left = 200.0
+margin_right = 274.0
+margin_bottom = 24.0
+
+[node name="FlowerShowDebug" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
+margin_top = 220.0
+margin_right = 392.0
+margin_bottom = 244.0
+text = "Show Debug"
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+margin_top = 248.0
+margin_right = 392.0
+margin_bottom = 252.0
+
+[node name="GnomeConfigsLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 256.0
+margin_right = 392.0
+margin_bottom = 346.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Gnome Configs[/b][/center]
+
+[b]Turret Shell Launch Speed[/b]: The initial speed of shell fire.
+[b]Turret Shall Maximum Height[/b]: The maximum height the shell can travel when launched vertically.
+[b]Fire Cooldown[/b]: The cooldown of the turret fire in secs."
+text = "Gnome Configs
+
+Turret Shell Launch Speed: The initial speed of shell fire.
+Turret Shall Maximum Height: The maximum height the shell can travel when launched vertically.
+Fire Cooldown: The cooldown of the turret fire in secs."
+fit_content_height = true
+
+[node name="GnomeProjectileLaunchSpeed" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 350.0
+margin_right = 392.0
+margin_bottom = 374.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/GnomeProjectileLaunchSpeed"]
+margin_left = 74.0
+margin_top = 5.0
+margin_right = 239.0
+margin_bottom = 19.0
+text = "Turret Shell Launch Speed"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/GnomeProjectileLaunchSpeed"]
+margin_left = 243.0
+margin_right = 317.0
+margin_bottom = 24.0
+max_value = 2000.0
+step = 10.0
+
+[node name="GnomeProjectileMaxDistance" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 378.0
+margin_right = 392.0
+margin_bottom = 402.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/GnomeProjectileMaxDistance"]
+margin_left = 63.0
+margin_top = 5.0
+margin_right = 250.0
+margin_bottom = 19.0
+text = "Turret Shell Maximum Height"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/GnomeProjectileMaxDistance"]
+margin_left = 254.0
+margin_right = 328.0
+margin_bottom = 24.0
+max_value = 1080.0
+step = 10.0
+
+[node name="GnomeFireDelay" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 406.0
+margin_right = 392.0
+margin_bottom = 430.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/GnomeFireDelay"]
+margin_left = 112.0
+margin_top = 5.0
+margin_right = 202.0
+margin_bottom = 19.0
+text = "Fire Cooldown"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/GnomeFireDelay"]
+margin_left = 206.0
+margin_right = 280.0
+margin_bottom = 24.0
+max_value = 5.0
+step = 0.05
+
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+margin_top = 434.0
+margin_right = 392.0
+margin_bottom = 438.0
+
+[node name="BlockerConfigsLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 442.0
+margin_right = 392.0
+margin_bottom = 667.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Blocker Configs[/b][/center]
+
+[b]Max Alive Blockers[/b]: The max number of blockers that can be alive on screen at any time.
+[b]Blocker Configs[/b]: For each blocker a JSON dictionary string which can be edited. [b]Do Not[/b] change the keys. These have the following layout - 
+	default_speed: Base speed
+	spawn_timeout: Minimum delay between spawns in secs
+	spawn_height: The mean height at which this spawn takes place
+	spawn_height_deviation: The deviation from the mean height - used for RandomNumberGenerator.randfn
+	skill_level_threshold: The minimum skill scale required to spawn this blocker"
+text = "Blocker Configs
+
+Max Alive Blockers: The max number of blockers that can be alive on screen at any time.
+Blocker Configs: For each blocker a JSON dictionary string which can be edited. Do Not change the keys. These have the following layout - 
+	default_speed: Base speed
+	spawn_timeout: Minimum delay between spawns in secs
+	spawn_height: The mean height at which this spawn takes place
+	spawn_height_deviation: The deviation from the mean height - used for RandomNumberGenerator.randfn
+	skill_level_threshold: The minimum skill scale required to spawn this blocker"
+fit_content_height = true
+
+[node name="BlockerMaxAlive" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 671.0
+margin_right = 392.0
+margin_bottom = 695.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BlockerMaxAlive"]
+margin_left = 96.0
+margin_top = 5.0
+margin_right = 217.0
+margin_bottom = 19.0
+text = "Max Alive Blockers"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/BlockerMaxAlive"]
+margin_left = 221.0
+margin_right = 295.0
+margin_bottom = 24.0
+
+[node name="BlockerType" type="OptionButton" parent="ScrollContainer/VBoxContainer"]
+margin_top = 699.0
+margin_right = 392.0
+margin_bottom = 719.0
+text = "BlockerType"
+items = [ "Aeroplane", null, false, 0, null, "Balloon", null, false, 1, null, "Bird", null, false, 2, null, "Spaceship", null, false, 3, null, "Tortoise", null, false, 4, null ]
+selected = 0
+
+[node name="BlockerConfigJSON" type="TextEdit" parent="ScrollContainer/VBoxContainer"]
+margin_top = 723.0
+margin_right = 392.0
+margin_bottom = 823.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 3
+wrap_enabled = true

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/blockers/Blocker.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/blockers/aeroplane/sprites/aeroplane.tres" type="Texture" id=2]
+[ext_resource path="res://sounds/plane_engine.wav" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42, 21 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -41.3675, 4.58913, -12.9751, 9.19731, -2.12363, 18.265, 12.2955, 19.3056, 25.3768, 10.2379, 42.1743, 3.54858, 26.12, 2.35937, -3.61014, 0.724213 )
+
+[node name="Aeroplane" instance=ExtResource( 1 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" parent="." index="1"]
+occluder = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "SFX"

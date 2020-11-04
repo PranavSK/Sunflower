@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://characters/gnome/Gnome.gd" type="Script" id=1]
+[ext_resource path="res://characters/gnome/turret/Turret.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/gnome/tank/sprites/tank.tres" type="Texture" id=3]
+[ext_resource path="res://sounds/tank_move.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/weapon_firing.wav" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 81.7009, 48.4345 )
+
+[node name="Gnome" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource( 1 )
+
+[node name="GunHolder" type="Node2D" parent="."]
+position = Vector2( -2.83482, -5.55059 )
+
+[node name="Turret" parent="GunHolder" instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="BoxCollision2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.23512, 21.7513 )
+shape = SubResource( 1 )
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+
+[node name="MoveSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+attenuation = 0.784584
+bus = "SFX"
+
+[node name="FireSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
